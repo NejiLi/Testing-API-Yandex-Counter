@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "361eaba6-55ef-4a58-aeed-3671f98764bb",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33240891"
+	},
+	"item": [
+		{
+			"name": "https://4f7d200f-2714-4f21-8620-183dc067a5f8.serverhub.praktikum-services.ru/api/v1/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\"firstName\": \"Аа\",\"phone\": \"+74441237887\",\"address\": \"г. Москва, ул. Хохотушкина, д. 16\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://4f7d200f-2714-4f21-8620-183dc067a5f8.serverhub.praktikum-services.ru/api/v1/users",
+					"protocol": "https",
+					"host": [
+						"4f7d200f-2714-4f21-8620-183dc067a5f8",
+						"serverhub",
+						"praktikum-services",
+						"ru"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос БД на список всех продуктов и их id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_prilavok}}/api/db/resources/product_model.csv",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"db",
+						"resources",
+						"product_model.csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "БД пользователей",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_prilavok}}/api/db/resources/user_model.csv",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"db",
+						"resources",
+						"user_model.csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "корзина с 6 предметами на одном складе",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 6,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"id\": 4,\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"id\": 10,\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"id\": 18,\r\n            \"quantity\": 3\r\n        },\r\n        {\r\n            \"id\": 30,\r\n            \"quantity\": 5\r\n        },\r\n        {\r\n            \"id\": 23,\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "добавление 3 продукта к 6",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 7,\r\n            \"quantity\": 4\r\n        },\r\n        {\r\n            \"id\": 9,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"id\": 22,\r\n            \"quantity\": 3\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/4",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Все продукты на складе",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ids\": [\r\n        1,\r\n        3,\r\n        4,\r\n        5,\r\n        6,\r\n        7,\r\n        8,\r\n        9,\r\n        10,\r\n        11,\r\n        12,\r\n        13,\r\n        14,\r\n        15,\r\n        16,\r\n        17,\r\n        18,\r\n        19,\r\n        20,\r\n        21,\r\n        22,\r\n        23,\r\n        24,\r\n        25,\r\n        26,\r\n        27,\r\n        28,\r\n        29,\r\n        30,\r\n        31,\r\n        32,\r\n        33,\r\n        34,\r\n        35,\r\n        36,\r\n        37,\r\n        38,\r\n        39,\r\n        40,\r\n        41,\r\n        42,\r\n        43,\r\n        44,\r\n        45,\r\n        46,\r\n        47,\r\n        48,\r\n        49,\r\n        50,\r\n        51,\r\n        52,\r\n        53,\r\n        54,\r\n        55,\r\n        56,\r\n        57,\r\n        58,\r\n        59,\r\n        60,\r\n        61,\r\n        62,\r\n        63,\r\n        64,\r\n        65,\r\n        66,\r\n        67,\r\n        68,\r\n        69,\r\n        70\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/warehouses/amount",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"warehouses",
+						"amount"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

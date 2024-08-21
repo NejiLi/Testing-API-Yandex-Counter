@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "2361b846-a10f-4fdb-ab85-5a9bd9c42bef",
+		"name": "GET /api/v1/orders/:id - возможность получить список продуктов, которые добавили в корзину",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33240891"
+	},
+	"item": [
+		{
+			"name": "id существующей корзины  (созданной без авторизации)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/2",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "id НЕсуществующей корзины ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/13",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "\"корзина, созданная  с авторизацией  (пользователем 1)  доступна по авторизации\"",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "5ee45e6a-f7e7-4aa7-a4e6-edf54c399c25",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/4",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "\"корзина, созданная  с авторизацией  (пользователем 1)  НЕдоступна без авторизации\"",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/4",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "\"корзина, созданная  с авторизацией  пользователя 1 не доступна по авторизации пользователя 2\"",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bb25f4d8-eee0-4235-9b64-b3cfe8c01f2d",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/4",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

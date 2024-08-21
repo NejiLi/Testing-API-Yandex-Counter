@@ -1,0 +1,619 @@
+{
+	"info": {
+		"_postman_id": "a9c13812-88de-4663-adeb-9d51da8ee8b1",
+		"name": "PUT /api/v1/orders/:id - Возможность добавлять продукты в корзину",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33240891"
+	},
+	"item": [
+		{
+			"name": "id в url - id существующей корзины  (созданной без авторизации)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 5,\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"id\": 6,\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/2",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "id в url - id НЕсуществующей корзины ",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 5,\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"id\": 6,\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/13",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - Передан с пустым массивом",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [ ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - Передан БЕЗ ОДНОГО обязательного  существующих параметра",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 15 \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - Передан с ОДНИМ ПУСТЫМ  обязательным существующим  параметром",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 15,\r\n            \"quantity\":\"\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - Передан с одним НЕСУЩЕСТВУЮЩИМ параметром",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 6,\r\n            \"quantity\": 3,\r\n            \"theEnd\": 7\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - id - число, содержащее дополнительный пробел перед цифрами",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\":  26,\r\n            \"quantity\": 10 \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - id - число, содержащее пробел между цифрами",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 2 6,\r\n            \"quantity\": 10 \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - id - число, содержащее пробел после цифры, перед запятой",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 46 ,\r\n            \"quantity\": 10 \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - id - тип данных \"строка\" буквы русского алфавита",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": \"в\",\r\n            \"quantity\": 3 \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - id - буквы английского алфавита",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": \"h\",\r\n            \"quantity\": 3 \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - id - спец.символы",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": \"@\",\r\n            \"quantity\": 3 \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - id - не существующее числовое значение",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 245,\r\n            \"quantity\":  3 \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - quantity - число, содержащее дополнительный пробел перед цифрами",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 44,\r\n            \"quantity\":  3 \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - quantity - число, содержащее пробел между цифрами",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 48,\r\n            \"quantity\": 1 0 \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - quantity - число, содержащее пробел после цифры",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 48,\r\n            \"quantity\": 10  \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - quantity - тип данных \"строка\" - буквы русского алфавита",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 4,\r\n            \"quantity\": \"ф\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - quantity - буквы английского алфавита",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 4,\r\n            \"quantity\": \"q\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - quantity - спец.символы",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 4,\r\n            \"quantity\": \"?\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productsList - quantity - числовое значение, больше чем есть на складе",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsList\": [\r\n        {\r\n            \"id\": 4,\r\n            \"quantity\": 150\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "структура  тела запроса - XML",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<root>\r\n  <productsList>\r\n    <id>5</id>\r\n    <quantity>2</quantity>\r\n  </productsList>\r\n  <productsList>\r\n    <id>78</id>\r\n    <quantity>1</quantity>\r\n  </productsList>\r\n</root>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_prilavok}}/api/v1/orders/6",
+					"host": [
+						"{{server_prilavok}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
